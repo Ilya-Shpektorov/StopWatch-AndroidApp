@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
             String time = String.format(Locale.getDefault(), "%d:%02d:%02d", hours, minutes, sec);
             timerTexrVieiw.setText(time);
-            while (isRunning) {
+            if (isRunning) {
                 seconds++;
             }
             handler.postDelayed(this::runTimer, 1000);
