@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView timerTexrView;
+    private TextView timerTextView;
     boolean isRunning = false;
     private int seconds = 0;
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        timerTexrView = findViewById(R.id.textViewTimer);
+        timerTextView = findViewById(R.id.textViewTimer);
         runTimer();
     }
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             int sec = seconds % 60;
 
             String time = String.format(Locale.getDefault(), "%d:%02d:%02d", hours, minutes, sec);
-            timerTexrView.setText(time);
+            timerTextView.setText(time);
             if (isRunning) {
                 seconds++;
             }
