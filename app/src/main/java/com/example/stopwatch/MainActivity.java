@@ -1,5 +1,6 @@
 package com.example.stopwatch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -20,7 +21,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         timerTextView = findViewById(R.id.textViewTimer);
+        if (savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds");
+            isRunning = savedInstanceState.getBoolean("isRunning");
+        }
         runTimer();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("seconds", seconds);
+        outState.putBoolean("isRunning", isRunning);
     }
 
     public void onClickStartTimer(View view) {
